@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/restaurantListFragment">
+    <fragment
+        android:id="@+id/restaurantListFragment"
+        android:name="com.zohre.jetapplication.ui.restaurantonList.RestaurantListFragment"
+        android:label="fragment_restaurant_list"
+        tools:layout="@layout/fragment_restaurant_list" >
+        <action
+            android:id="@+id/action_restaurantListFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment">
+            <argument
+                android:name="myArg"
+                app:argType="xyz.zohre.domain.model.Restaurants"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.zohre.jetapplication.ui.restaurantDetail.RestaurantDetailFragment"
+        android:label="fragment_restaurant_detail"
+        tools:layout="@layout/fragment_restaurant_detail">
+        <argument
+            android:name="myArg"
+            app:argType="xyz.zohre.domain.model.Restaurants"
+            />
+    </fragment>
+</navigation>
