@@ -1,0 +1,4 @@
+rootProject.name = "JET Application"
+include ':app'
+include ':data'
+include ':domain'
