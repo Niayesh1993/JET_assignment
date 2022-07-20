@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">JET Application</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="distance_title">Distance:</string>
+    <string name="newest_title">Newest:</string>
+    <string name="ratingAverage_title">RatingAverage:</string>
+    <string name="bestMatch_title">bestMatch:</string>
+    <string name="popularity_title">Popularity:</string>
+    <string name="averageProductPrice_title">AverageProductPrice:</string>
+    <string name="deliveryCosts_title">DeliveryCosts:</string>
+    <string name="minCost_title">MinCost:</string>
 </resources>

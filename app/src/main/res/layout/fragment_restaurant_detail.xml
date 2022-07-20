@@ -1,14 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.restaurantDetail.RestaurantDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Restaurant's name" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/status"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Restaurant's status" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/distance_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:text="@string/distance_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/light_orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/bestMatch_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bestMatch_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newest_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/newest_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/newest_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingAverage_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ratingAverage_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ratingAverage_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popularity_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularity_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/popularity_title"
+        android:layout_margin="@dimen/mid_margin"
+        android:textColor="@color/light_orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distance_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/averageProductPrice_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/averageProductPrice_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bestMatch_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/deliveryCosts_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/deliveryCosts_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/averageProductPrice_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/minCost_title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/minCost_title"
+        android:textColor="@color/light_orange"
+        android:layout_margin="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deliveryCosts_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/distance_title"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:text="Restaurant's distance" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:layout_marginTop="25dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/popularity_title"
+        app:layout_constraintTop_toBottomOf="@+id/distance_title"
+        tools:text="Restaurant's popularity" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ratingAverage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/ratingAverage_title"
+        app:layout_constraintTop_toBottomOf="@+id/popularity"
+        tools:text="Restaurant's ratingAverage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/newest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/newest_title"
+        app:layout_constraintTop_toBottomOf="@+id/ratingAverage"
+        tools:text="Restaurant's newest" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/bestMach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/bestMatch_title"
+        app:layout_constraintTop_toBottomOf="@+id/newest"
+        tools:text="Restaurant's bestMach" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/averageProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/averageProductPrice_title"
+        app:layout_constraintTop_toBottomOf="@+id/bestMach"
+        tools:text="Restaurant's averageProductPrice" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/deliveryCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/deliveryCosts_title"
+        app:layout_constraintTop_toBottomOf="@+id/averageProductPrice"
+        tools:text="Restaurant's deliveryCosts" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/minCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/minCost_title"
+        app:layout_constraintTop_toBottomOf="@+id/deliveryCosts"
+        tools:text="Restaurant's minCost" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

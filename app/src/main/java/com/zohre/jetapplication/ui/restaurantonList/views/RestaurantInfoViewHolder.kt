@@ -23,6 +23,7 @@ class RestaurantInfoViewHolder private constructor(private val binding: ItemRest
 
      fun onBind(restaurant: Restaurants, onItemClickListener: (Restaurants) -> Unit) {
           binding.name.text = restaurant.name
+          binding.status.text = restaurant.status
           binding.distance.text = restaurant.sortingValues.distance.toString()
           binding.ratingAverage.text = restaurant.sortingValues.ratingAverage.toString()
           binding.root.setOnClickListener {
