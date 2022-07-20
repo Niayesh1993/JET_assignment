@@ -7,6 +7,7 @@ import xyz.zohre.domain.model.JsonResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
+import xyz.zohre.domain.model.RestaurantResponse
 import xyz.zohre.domain.model.Restaurants
 import java.io.IOException
 import javax.inject.Inject
@@ -21,12 +22,12 @@ class RestaurantsRemoteDataSourceImpl @Inject constructor() : RestaurantsRemoteD
         val jsonFileString = jsonFileStringDeferred.await()
 
         val gson = Gson()
-        val listResturantType = object : TypeToken<List<Restaurants>>() {}.type
+        val listRestaurantType = object : TypeToken<RestaurantResponse>() {}.type
 
-        val products: List<Restaurants> = gson.fromJson(jsonFileString, listResturantType)
-        products.forEachIndexed { idx, restaurants -> println("> Item ${idx}:\n${restaurants}") }
+        val products: RestaurantResponse = gson.fromJson(jsonFileString, listRestaurantType)
+        products.restaurants.forEachIndexed{idx, restaurant -> println("> Item ${idx}: \n${restaurant}")}
 
-        return@withContext JsonResult(products)
+        return@withContext JsonResult(products.restaurants)
     }
 
     //read json file from assets folder

@@ -18,6 +18,4 @@ class RestaurantsRepositoryImpl@Inject constructor(
         return@withContext remoteDataSource.fetchRestaurants(context, fileName)
     }
 
-
-
 }
