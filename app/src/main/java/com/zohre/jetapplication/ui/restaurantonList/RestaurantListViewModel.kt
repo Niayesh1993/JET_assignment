@@ -9,30 +9,33 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import xyz.zohre.domain.model.Restaurants
 import xyz.zohre.domain.usecase.GetRestaurantsUseCase
+import xyz.zohre.domain.usecase.SortRestaurantUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class RestaurantListViewModel @Inject constructor(
-    private val getRestaurantsUseCase: GetRestaurantsUseCase
+    private val getRestaurantsUseCase: GetRestaurantsUseCase,
+    private val sortRestaurantUseCase: SortRestaurantUseCase
     ): ViewModel()
 {
     private val _restaurants = MutableLiveData<List<Restaurants>>()
     val restaurants: LiveData<List<Restaurants>> get() = _restaurants
 
-
-    fun loadRestaurants(context: Context) {
+    fun loadRestaurants(context: Context, status: String) {
         viewModelScope.launch {
             val result =
-                runCatching { getRestaurantsUseCase.execute(context, fileName) }
+                runCatching { getRestaurantsUseCase.execute(context) }
             result.onSuccess {
-                _restaurants.value = it.value
+                sortRestaurantBy(status)
             }.onFailure {
 
             }
         }
     }
 
-    companion object {
-        const val fileName = "Sample Android.json"
+    fun sortRestaurantBy(sortStatus: String) {
+
+        _restaurants.value = sortRestaurantUseCase.sortRestaurant(sortStatus)
     }
+
 }

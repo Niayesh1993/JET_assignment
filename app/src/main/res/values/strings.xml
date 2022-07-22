@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">JET Application</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="distance_title">Distance:</string>
-    <string name="newest_title">Newest:</string>
-    <string name="ratingAverage_title">RatingAverage:</string>
-    <string name="bestMatch_title">bestMatch:</string>
-    <string name="popularity_title">Popularity:</string>
-    <string name="averageProductPrice_title">AverageProductPrice:</string>
-    <string name="deliveryCosts_title">DeliveryCosts:</string>
-    <string name="minCost_title">MinCost:</string>
+    <string name="distance_title">distance</string>
+    <string name="newest_title">newest</string>
+    <string name="ratingAverage_title">ratingAverage</string>
+    <string name="bestMatch_title">bestMatch</string>
+    <string name="popularity_title">popularity</string>
+    <string name="averageProductPrice_title">averageProductPrice</string>
+    <string name="deliveryCosts_title">deliveryCosts</string>
+    <string name="minCost_title">minCost</string>
+    <string name="restaurant_detail">restaurantDetail</string>
 </resources>

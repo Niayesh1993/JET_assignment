@@ -7,15 +7,88 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.restaurantonList.RestaurantListFragment">
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_group_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            app:checkedButton="@id/btn_sort_by_bestMatch"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sort_by_bestMatch"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bestMatch_title"
+                android:tag="@string/bestMatch_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/orange" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sort_by_newest"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newest_title"
+                android:tag="@string/newest_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/orange" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sort_by_rating"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ratingAverage_title"
+                android:tag="@string/ratingAverage_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/orange" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sort_by_distance"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_title"
+                android:tag="@string/distance_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/orange" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sort_by_popularity"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/popularity_title"
+                android:tag="@string/popularity_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/orange" />
+
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </HorizontalScrollView>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/venues_info_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="@dimen/mid_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

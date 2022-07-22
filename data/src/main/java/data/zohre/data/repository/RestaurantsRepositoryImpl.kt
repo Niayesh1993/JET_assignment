@@ -14,8 +14,11 @@ class RestaurantsRepositoryImpl@Inject constructor(
     private val remoteDataSource: RestaurantsRemoteDataSource
 ) : RestaurantsRepository {
 
-    override suspend fun getRestaurants(context: Context, fileName: String): JsonResult<List<Restaurants>> = withContext(Dispatchers.IO){
-        return@withContext remoteDataSource.fetchRestaurants(context, fileName)
+    override suspend fun getRestaurants(context: Context): JsonResult<List<Restaurants>> = withContext(Dispatchers.IO){
+        return@withContext remoteDataSource.fetchRestaurants(context)
     }
 
+    override fun sortRestaurant(sortStatus: String): List<Restaurants> {
+        return remoteDataSource.sortRestaurant(sortStatus)
+    }
 }

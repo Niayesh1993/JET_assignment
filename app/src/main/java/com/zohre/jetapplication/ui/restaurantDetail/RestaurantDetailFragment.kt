@@ -34,9 +34,7 @@ class RestaurantDetailFragment : Fragment() {
     }
 
     private fun handleArguments() {
-        arguments?.getParcelable<Restaurants>("").let {
-           initUI(it)
-        }
+        initUI(arguments?.getParcelable<Restaurants>(R.string.restaurant_detail.toString()))
     }
 
     private fun initUI(restaurants: Restaurants?){
@@ -50,6 +48,7 @@ class RestaurantDetailFragment : Fragment() {
             binding.minCost.text = restaurants.sortingValues.minCost.toString()
             binding.newest.text = restaurants.sortingValues.newest.toString()
             binding.popularity.text = restaurants.sortingValues.popularity.toString()
+            binding.ratingAverage.text = restaurants.sortingValues.ratingAverage.toString()
         }
     }
 

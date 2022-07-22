@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.button.MaterialButton
 import com.zohre.jetapplication.R
 import com.zohre.jetapplication.databinding.FragmentRestaurantListBinding
 import com.zohre.jetapplication.ui.restaurantonList.adapter.RestaurantsInfoAdapter
@@ -19,7 +20,7 @@ import xyz.zohre.domain.model.Restaurants
 
 
 @AndroidEntryPoint
-class RestaurantListFragment : Fragment() {
+class RestaurantListFragment : Fragment(), View.OnClickListener {
 
     private lateinit var viewModel: RestaurantListViewModel
 
@@ -42,19 +43,25 @@ class RestaurantListFragment : Fragment() {
         viewModel = ViewModelProvider(this)[RestaurantListViewModel::class.java]
 
         initializeInfoList()
+        initializeSortView()
         initializeRestaurantObservers()
-        activity?.let { viewModel.loadRestaurants(it.applicationContext) }
     }
 
     private fun initializeInfoList() {
         infoAdapter = RestaurantsInfoAdapter {
-            showRestaurantDetail("", it)
+            showRestaurantDetail(R.string.restaurant_detail.toString(), it)
         }
         binding.venuesInfoList.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.venuesInfoList.adapter = infoAdapter
+    }
 
-
+    private fun initializeSortView() {
+        binding.btnSortByBestMatch.setOnClickListener(this)
+        binding.btnSortByNewest.setOnClickListener(this)
+        binding.btnSortByRating.setOnClickListener(this)
+        binding.btnSortByDistance.setOnClickListener(this)
+        binding.btnSortByPopularity.setOnClickListener(this)
     }
 
     private fun initializeRestaurantObservers() {
@@ -70,6 +77,24 @@ class RestaurantListFragment : Fragment() {
             R.id.action_restaurantListFragment_to_restaurantDetailFragment,
             bundleOf(key to restaurant)
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val buttonId: Int = binding.toggleGroupSort.checkedButtonId
+        val button: MaterialButton = binding.toggleGroupSort.findViewById<MaterialButton>(buttonId)
+        activity?.let { viewModel.loadRestaurants(it.applicationContext, button.tag.toString()) }
+
+    }
+
+    override fun onClick(view: View?) {
+        when(view) {
+            binding.btnSortByBestMatch -> {viewModel.sortRestaurantBy(view.tag.toString())}
+            binding.btnSortByNewest -> {viewModel.sortRestaurantBy(view.tag.toString())}
+            binding.btnSortByRating -> {viewModel.sortRestaurantBy(view.tag.toString())}
+            binding.btnSortByDistance -> {viewModel.sortRestaurantBy(view.tag.toString())}
+            binding.btnSortByPopularity -> {viewModel.sortRestaurantBy(view.tag.toString())}
+        }
     }
 
 }

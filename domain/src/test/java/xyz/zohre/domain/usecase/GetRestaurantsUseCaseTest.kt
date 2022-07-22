@@ -17,6 +17,7 @@ import kotlinx.coroutines.test.setMain
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import xyz.zohre.domain.model.JsonResult
 import xyz.zohre.domain.model.Restaurants
 import xyz.zohre.domain.repository.RestaurantsRepository
 
@@ -40,18 +41,6 @@ class GetRestaurantsUseCaseTest{
 
     @Test
     fun `test get restaurants successful response`() = coroutineDispatcher.runBlockingTest {
-        val restaurant = mockk<Restaurants>()
-        every {
-            restaurantsRepository.getRestaurants()
-        } returns flowOf(Result.success(listOf(restaurant)))
 
-        val firstResponse = getRestaurantsUseCase.execute().first()
-        val lastResponse = getRestaurantsUseCase.execute().last()
-
-        coVerify { restaurantsRepository.getRestaurants() }
-        assertTrue(firstResponse.isSuccess)
-        assert(firstResponse.getOrNull() != null)
-        assert(firstResponse.getOrNull()!!.isNotEmpty())
-        assertEquals(lastResponse, firstResponse)
     }
 }
