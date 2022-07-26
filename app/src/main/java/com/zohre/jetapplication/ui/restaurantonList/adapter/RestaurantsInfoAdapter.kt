@@ -17,14 +17,17 @@ object RestaurantsInfoDiffCallback : DiffUtil.ItemCallback<Restaurants>() {
     }
 }
 
-class RestaurantsInfoAdapter(private val onItemClickListener: (Restaurants) -> Unit) :
+class RestaurantsInfoAdapter(private val onItemClickListener: (Restaurants) -> Unit,
+                             private val favoriteOnItemClickListener: (Restaurants) -> Unit):
     ListAdapter<Restaurants, RestaurantInfoViewHolder>(RestaurantsInfoDiffCallback) {
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantInfoViewHolder {
         return RestaurantInfoViewHolder.createFrom(parent)
     }
 
     override fun onBindViewHolder(holder: RestaurantInfoViewHolder, position: Int) {
-        holder.onBind(getItem(position), onItemClickListener)
+        holder.onBind(getItem(position), onItemClickListener, favoriteOnItemClickListener)
     }
 }

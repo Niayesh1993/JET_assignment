@@ -29,6 +29,7 @@ class RestaurantListFragment : Fragment(), View.OnClickListener {
 
     private lateinit var infoAdapter: RestaurantsInfoAdapter
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -48,9 +49,11 @@ class RestaurantListFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initializeInfoList() {
-        infoAdapter = RestaurantsInfoAdapter {
-            showRestaurantDetail(R.string.restaurant_detail.toString(), it)
-        }
+
+        infoAdapter = RestaurantsInfoAdapter(
+            onItemClickListener = { showRestaurantDetail(R.string.restaurant_detail.toString(), it)},
+            favoriteOnItemClickListener = { updateFavoriteRestaurant(it) }
+        )
         binding.venuesInfoList.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.venuesInfoList.adapter = infoAdapter
@@ -79,10 +82,14 @@ class RestaurantListFragment : Fragment(), View.OnClickListener {
         )
     }
 
+    private fun updateFavoriteRestaurant(restaurant: Restaurants) {
+        viewModel.updateFavoriteRestaurant(restaurant)
+    }
+
     override fun onResume() {
         super.onResume()
         val buttonId: Int = binding.toggleGroupSort.checkedButtonId
-        val button: MaterialButton = binding.toggleGroupSort.findViewById<MaterialButton>(buttonId)
+        val button: MaterialButton = binding.toggleGroupSort.findViewById(buttonId)
         activity?.let { viewModel.loadRestaurants(it.applicationContext, button.tag.toString()) }
 
     }

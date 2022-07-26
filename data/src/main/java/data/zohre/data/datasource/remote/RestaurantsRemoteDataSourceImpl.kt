@@ -1,10 +1,8 @@
-package data.zohre.data.datasource
+package data.zohre.data.datasource.remote
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import data.zohre.data.datasource.RestaurantsRemoteDataSourceImpl.Companion.GROUP_BY_POPULARITY
-import data.zohre.data.repository.RestaurantsRepositoryImpl
 import xyz.zohre.domain.model.JsonResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -16,7 +14,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RestaurantsRemoteDataSourceImpl @Inject constructor() : RestaurantsRemoteDataSource{
+class RestaurantsRemoteDataSourceImpl @Inject constructor() : RestaurantsRemoteDataSource {
 
     private lateinit var unSortedRestaurant: List<Restaurants>
     private val statusOrder = mapOf("open" to 3, "order ahead" to 2, "closed" to 1)
@@ -49,27 +47,7 @@ class RestaurantsRemoteDataSourceImpl @Inject constructor() : RestaurantsRemoteD
         return jsonString
     }
 
-    override fun sortRestaurant(sortStatus: String): List<Restaurants> {
-        when (sortStatus) {
-            GROUP_BY_FAVORITE -> {}
-            GROUP_BY_BEST_MATCH -> {
-                return unSortedRestaurant.sortedWith(compareBy({statusOrder[it.status]}, {it.sortingValues.bestMatch})).reversed()
-            }
-            GROUP_BY_NEWEST -> {
-                return unSortedRestaurant.sortedWith(compareBy({statusOrder[it.status]}, {it.sortingValues.newest})).reversed()
-            }
-            GROUP_BY_RATING -> {
-                return unSortedRestaurant.sortedWith(compareBy({statusOrder[it.status]}, {it.sortingValues.ratingAverage})).reversed()
-            }
-            GROUP_BY_DISTANCE -> {
-                return unSortedRestaurant.sortedWith(compareBy({statusOrder[it.status]}, {it.sortingValues.distance})).reversed()
-            }
-            GROUP_BY_POPULARITY -> {
-                return unSortedRestaurant.sortedWith(compareBy({statusOrder[it.status]}, {it.sortingValues.popularity})).reversed()
-            }
-        }
-        return unSortedRestaurant
-    }
+
 
     companion object {
         const val fileName = "Sample Android.json"

@@ -7,5 +7,6 @@ import kotlinx.android.parcel.Parcelize
 data class Restaurants(
     val name: String,
     val status: String,
-    val sortingValues: SortingValues
+    val sortingValues: SortingValues,
+    var isFavorite: Boolean = false
 ): Parcelable

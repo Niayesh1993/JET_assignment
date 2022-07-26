@@ -60,6 +60,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
+
     def fragment_version = "1.4.0-alpha03"
 
     // For instrumented tests.
