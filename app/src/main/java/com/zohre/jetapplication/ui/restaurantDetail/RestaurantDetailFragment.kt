@@ -49,6 +49,8 @@ class RestaurantDetailFragment : Fragment() {
             binding.newest.text = restaurants.sortingValues.newest.toString()
             binding.popularity.text = restaurants.sortingValues.popularity.toString()
             binding.ratingAverage.text = restaurants.sortingValues.ratingAverage.toString()
+            if (restaurants.isFavorite) binding.favoriteIcon.setImageResource(R.drawable.ic_favorite)
+            else binding.favoriteIcon.setImageResource(R.drawable.ic_un_favorite)
         }
     }
 

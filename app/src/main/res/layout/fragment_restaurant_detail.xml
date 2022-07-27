@@ -6,6 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.restaurantDetail.RestaurantDetailFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:src="@drawable/cutlery"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/name"
         style="@style/TextAppearance.AppCompat.Title"
@@ -15,8 +24,8 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+        app:layout_constraintTop_toBottomOf="@+id/status"
         tools:text="Restaurant's name" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -27,10 +36,19 @@
         android:layout_margin="@dimen/mid_margin"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/light_orange"
+        app:layout_constraintEnd_toStartOf="@+id/favorite_icon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Restaurant's status" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favorite_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mid_margin"
+        android:src="@drawable/ic_un_favorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/distance_title"

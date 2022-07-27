@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import xyz.zohre.domain.model.Restaurants
 
-
 @AndroidEntryPoint
 class RestaurantListFragment : Fragment(), View.OnClickListener {
 

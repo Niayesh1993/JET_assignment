@@ -27,6 +27,7 @@ class RestaurantsRemoteDataSourceImpl @Inject constructor() : RestaurantsRemoteD
         val gson = Gson()
         val listRestaurantType = object : TypeToken<RestaurantResponse>() {}.type
 
+
         val products: RestaurantResponse = gson.fromJson(jsonFileString, listRestaurantType)
         products.restaurants.forEachIndexed{idx, restaurant -> println("> Item ${idx}: \n${restaurant}")}
         unSortedRestaurant = products.restaurants

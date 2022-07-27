@@ -46,7 +46,7 @@ class RestaurantInfoViewHolder private constructor(private val binding: ItemRest
                     binding.favoriteIcon.setImageResource(R.drawable.ic_un_favorite)
                     favoriteOnItemClickListener(restaurant)
                }
-               if (!restaurant.isFavorite) {
+               else if (!restaurant.isFavorite) {
                     restaurant.isFavorite = true
                     binding.favoriteIcon.setImageResource(R.drawable.ic_favorite)
                     favoriteOnItemClickListener(restaurant)
@@ -54,9 +54,6 @@ class RestaurantInfoViewHolder private constructor(private val binding: ItemRest
                }
 
           }
-
-     }
-     private fun updateFavorite(restaurant: Restaurants) {
 
      }
 }
